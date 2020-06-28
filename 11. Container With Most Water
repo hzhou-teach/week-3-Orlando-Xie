@@ -1,0 +1,17 @@
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        max_vol = 0
+        height1max = (height[0])-1
+        for i in range(0, len(height)):
+            height1 = height[i]
+            if height1 > height1max:
+                height1max = height1
+                height2max = (height[len(height)-1])-1
+                for j in range(len(height)-1, i, -1):
+                    height2 = height[j]
+                    if height2 > height2max:
+                        height2max = height2
+                        val = (min(height1, height2))*(j-i)
+                        if val > max_vol:
+                            max_vol = val
+        return max_vol
