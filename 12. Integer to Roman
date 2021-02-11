@@ -1,0 +1,46 @@
+class Solution:
+    def intToRoman(self, num: int) -> str:
+        num_str = str(num)
+        roman_num = ""
+        rev_num_str = num_str[::-1]
+        for i in range(len(rev_num_str)):
+            if i == 0:
+                one_ = "I"
+                five_ = "V"
+                ten_ = "X"
+            elif i == 1:
+                one_ = "X"
+                five_ = "L"
+                ten_ = "C"
+            elif i == 2:
+                one_ = "C"
+                five_ = "D"
+                ten_ = "M"
+            elif i == 3:
+                one_ = "M"
+            num = int(rev_num_str[i])
+            if num == 1:
+                add = one_
+            elif num == 2:
+                add = one_ + one_
+            elif num == 3:
+                add = one_ + one_ + one_
+            elif num == 4:
+                add = one_ + five_
+            elif num == 5:
+                add = five_
+            elif num == 6:
+                add = five_ + one_
+            elif num == 7:
+                add = five_ + one_ + one_ 
+            elif num == 8:
+                add = five_ + one_ + one_ + one_
+            elif num == 9:
+                add = one_ + ten_
+            elif num == 0:
+                add = ""
+            roman_num = add + roman_num
+        
+        return roman_num
+        
+        
